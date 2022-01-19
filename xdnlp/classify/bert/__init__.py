@@ -1,0 +1,1 @@
+from xdnlp.classify.bert.model import BertClassify

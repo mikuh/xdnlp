@@ -1,0 +1,4 @@
+ nltk-3.6.2
+ pandas
+ numpy
+ tensorflow>=2.6
