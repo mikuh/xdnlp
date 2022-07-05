@@ -36,7 +36,7 @@ def read_lines(filename, func=None):
     if hasattr(filename, "read"):
         f_obj = filename
     else:
-        f_obj = open(filename, 'r')
+        f_obj = open(filename, 'r', encoding='utf-8')
     for l in f_obj:
         l = l.strip()
         if func is not None:
@@ -51,7 +51,7 @@ def read_csv_row(filename, func=None):
     if hasattr(filename, "read"):
         f_obj = filename
     else:
-        f_obj = open(filename, 'r')
+        f_obj = open(filename, 'r', encoding='utf-8')
     f_csv = csv.reader(f_obj)
     for row in f_csv:
         if func is not None:

@@ -5,7 +5,7 @@ with open("README.md", "r", encoding='utf-8') as fh:
 
 setuptools.setup(
     name="xdnlp",
-    version="0.0.9",
+    version="0.0.12",
     author="geb",
     author_email="853934146@qq.com",
     description="An efficient NLP tool.",
