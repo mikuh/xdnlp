@@ -25,7 +25,8 @@ class Ngrams(object):
                         for i in range(n):
                             ngram_list[i]["".join(sub_part[:i + 1])] += 1
                     end_part = sub_part
-                for i in range(1, l:=len(end_part)):
+                l = len(end_part)
+                for i in range(1, len(end_part)):
                     for j in range(i + 1, l + 1):
                         total += 1
                         ngram_list[j - i - 1]["".join(end_part[i:j])] += 1
