@@ -16,6 +16,10 @@ def hamming_distance_array(a: np.ndarray, b: np.ndarray, axis=1) -> int:
     return np.sum(np.not_equal(a, b), axis=axis)
 
 
+def is_valid_url(url: str) -> str:
+    return validators.url(url)
+
+
 def url2domain(url: str) -> str:
     if validators.url(url):
         return urlparse(url).netloc.lower().strip('.')
