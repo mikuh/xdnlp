@@ -3,6 +3,7 @@ from xdnlp.web.html import Html
 import validators
 import numpy as np
 from urllib.parse import urlparse
+import base64
 
 sh = SimHash()
 html = Html()
@@ -33,4 +34,11 @@ def top_domain(domain: str) -> str:
         return '.'.join(parts[-2:])
 
 
-__all__ = ['simhash', 'simhash_array', 'simhash_string', 'html', 'url2domain', 'top_domain']
+def decode_image(src: str):
+    data = src.split(",")[-1]
+    img = base64.urlsafe_b64decode(data)
+    return img
+
+
+
+__all__ = ['simhash', 'simhash_array', 'simhash_string', 'html', 'url2domain', 'top_domain', 'decode_image']

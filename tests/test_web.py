@@ -33,3 +33,4 @@ document.getElementById("demo").innerHTML = "Hello JavaScript!";
     assert web.html.get_links(html) == ['https://baidu.com/']
     assert web.html.extract_contact(html) == {'wechat': {'asdaf12313'}, 'phone': {'18042000005'}, 'qq': {'134515156124'}}
     assert web.html.extract_contact("导师微信： chenyue8870 武汉公司背景墙logo字体设计制作.武汉百阳广告电话：13476864737QQ：641173866湖北瑞丰科技HUBEI REFAN SCIENCE&TECHNOLOGY CO.LTD") == {'wechat': {'chenyue8870'}, 'phone': {'13476864737'}, 'qq': {'641173866'}}
+
