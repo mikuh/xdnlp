@@ -40,7 +40,8 @@ class Browser(object):
         try:
             async with asyncio.Semaphore(self.sem_value):
                 page = await self.browser.newPage()
-                await page.setUserAgent("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36")
+                # await page.setUserAgent(
+                #     "Mozilla/5.0 (Windows NT 10.0l; Win64 x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36")
                 await page.goto(url)
                 domain = url2domain(url)
                 content = await page.content()
@@ -78,8 +79,11 @@ class Browser(object):
         except Exception as e:
             default_logger.error(f"{url}, BASE:{e}")
 
+    async def close_browser(self):
+        await self.browser.close()
+
     def __del__(self):
-        asyncio.get_event_loop().run_until_complete(asyncio.wait(self.browser.close()))
+        asyncio.get_event_loop().run_until_complete(self.close_browser())
 
 
 if __name__ == '__main__':
@@ -95,9 +99,11 @@ if __name__ == '__main__':
             if not line.startswith("http"):
                 line = "http://" + line
                 data.append(line)
+    data = data[100:120]
+    data = ["http://zsxsfg.cn", "http://cdn01.aliceacademy.cn", "http://194986.com", "http://www.chenbanghuanbao.com", "http://sha649.com"]
     total = len(data)
     print(total)
-    tasks = [bs.fetch_save(url, output_dir=outdir, screenshot=False) for url in data]
+    tasks = [bs.fetch_save(url, output_dir=outdir, screenshot=True) for url in data]
 
     asyncio.get_event_loop().run_until_complete(asyncio.wait(tasks))
 
