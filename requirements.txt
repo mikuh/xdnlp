@@ -1,5 +1,7 @@
- nltk-3.6.2
+ nltk
  pandas
  numpy
- tensorflow>=2.6
+ tensorflow
  validators
+ aiofiles
+ pyppeteer

@@ -5,7 +5,7 @@ with open("README.md", "r", encoding='utf-8') as fh:
 
 setuptools.setup(
     name="xdnlp",
-    version="0.0.18",
+    version="0.0.20",
     author="geb",
     author_email="853934146@qq.com",
     description="An efficient NLP tool.",
@@ -15,9 +15,11 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
+
+
         "Operating System :: OS Independent",
     ],
     package_data={'': ['data/*.txt', "data/*.tsv"]},
-    install_requires=['numpy', 'pandas', 'nltk'],
+    install_requires=['numpy', 'pandas', 'nltk', 'validators'],
     python_requires='>=3.6',
 )
